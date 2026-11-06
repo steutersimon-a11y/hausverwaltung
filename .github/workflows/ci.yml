@@ -20,6 +20,10 @@ jobs:
         with:
           version: 11.25.0
       - run: pnpm install --frozen-lockfile
+      - name: Check browser-launch configuration
+        run: |
+          bash -n .devcontainer/post-create.sh .devcontainer/post-start.sh
+          docker compose --env-file .env.example -f docker-compose.yml -f .devcontainer/docker-compose.yml config --quiet
       - run: node scripts/setup.mjs --env-only
       - run: docker compose up -d --wait
       - run: pnpm db:migrate && pnpm db:seed

@@ -9,7 +9,7 @@ Die Anwendung wurde tatsächlich mit PostgreSQL/PostGIS, privatem S3-Speicher un
 | Migrationen und Seed | Bestanden | Migrationen 0001–0003; vier fiktive Objekte, davon drei mit sechs Gebäuden, 18 Geschossen und 36 Einheiten. Vierter Datensatz ohne erfundene Geografie; Seed idempotent. |
 | Lint | Bestanden | Root-Lint ohne Warnungen; unveränderter lizenzierter MapLibre-Worker als Fremdcode ausgenommen. |
 | Typecheck | Bestanden | Web-App, Pakete, Skripte und Tests unter TypeScript strict. |
-| Unit-Tests | Bestanden | **41 Tests** für Uploads/Bildgrenzen, Importparser und Geografiegates. |
+| Unit-Tests | Bestanden | **51 Tests** für Uploads/Bildgrenzen, Importparser, Geografiegates und die private Browser-Konfiguration. |
 | DB-Integration | Bestanden | **10 Tests** für organisations-/objektbezogene FKs, Constraints, PostGIS-Index und unveränderbare Audit-Historie. |
 | Playwright | Bestanden | **15 Abläufe**, sequenziell in zwei Läufen: Zugriff/Kern/Lifecycle (12) und Importreview (3). Keine API-Mocks. |
 | Produktionsbuild | Bestanden | Next.js 16.4.5 / React 19.3.1; optimierter Build einschließlich TypeScript und Routen. |
@@ -19,6 +19,7 @@ Die Anwendung wurde tatsächlich mit PostgreSQL/PostGIS, privatem S3-Speicher un
 | Mobile/Tastatur | Kernpfad bestanden | 390×844: Liste, Command Palette, Fokus und persistierendes Theme. Desktop mit reduzierter Bewegung. Vollständiger Accessibility-Audit offen. |
 | Backup/Restore | Offen | Anleitung vorhanden, getrennte Wiederherstellungsabnahme nicht ausgeführt. |
 | GitHub-CI | Separater Nachweis | Workflow vorhanden; lokale Ergebnisse ersetzen keinen beobachteten Actions-Lauf. |
+| Browser-Startkonfiguration | Lokal geprüft | Compose-Auflösung, Shellsyntax und zehn Tests für exakte Vorschauadresse, Konfigurationserhalt und private Auth-Secrets. Noch kein echter Codespace erstellt oder gestartet. |
 
 ## Geprüfte Abläufe
 

@@ -10,6 +10,12 @@ Ein lokal ausführbarer, deutschsprachiger Verwaltungsprototyp: räumlicher Übe
 
 Die Aufnahme stammt aus der tatsächlich gestarteten Anwendung mit ausschließlich fiktiven Testdaten. [Light Mode ansehen](docs/screenshots/portfolio-light.png).
 
+## Im Browser starten – ohne Installation
+
+**[ATLAS in GitHub Codespaces öffnen](https://codespaces.new/steutersimon-a11y/hausverwaltung)** → bei GitHub anmelden → **Create codespace**. Die Einrichtung und der Anwendungsstart laufen automatisch. Falls kein ATLAS-Tab aufgeht: **Ports → 3000 → Open in Browser**; Sichtbarkeit **Private** lassen.
+
+Ein frischer Codespace enthält nur die synthetische Demo. Echte Quelldaten und Gebäudemodelle aus der bisherigen privaten Arbeitsumgebung werden nicht übertragen. GitHub bietet ein monatliches Kontingent; darüber hinaus können Kosten entstehen. Prüfe die Konditionen vor dem Start. Anmeldung, Datenumfang und Beenden: **[Browser-Anleitung](docs/OPEN_IN_BROWSER.md)**.
+
 ## Lokal starten
 
 Voraussetzungen: Node.js **24+**, pnpm **11.25.0**, Docker mit Compose. Die Ports 3000, 5432 und 9000 müssen frei sein. Falls pnpm fehlt: `npm install --global pnpm@11.25.0`.

@@ -1,0 +1,22 @@
+{
+  "name": "ATLAS im Browser",
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
+  "service": "workspace",
+  "workspaceFolder": "/workspace/hausverwaltung",
+  "runServices": ["postgres", "objectstore", "workspace"],
+  "remoteUser": "node",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "ATLAS Property OS",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "otherPortsAttributes": {
+    "onAutoForward": "ignore"
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "postStartCommand": "bash .devcontainer/post-start.sh",
+  "waitFor": "postCreateCommand",
+  "shutdownAction": "stopCompose"
+}

@@ -1,0 +1,17 @@
+services:
+  workspace:
+    build:
+      context: .devcontainer
+      dockerfile: Dockerfile
+    init: true
+    command: sleep infinity
+    user: node
+    working_dir: /workspace/hausverwaltung
+    volumes:
+      # Compose resolves both files' paths relative to the first, root file.
+      - .:/workspace/hausverwaltung:cached
+    depends_on:
+      postgres:
+        condition: service_healthy
+      objectstore:
+        condition: service_healthy

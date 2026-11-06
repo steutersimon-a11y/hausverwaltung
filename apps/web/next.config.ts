@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  allowedDevOrigins: process.env.APP_URL ? [new URL(process.env.APP_URL).hostname] : [],
   transpilePackages: ["@atlas/db", "@atlas/domain", "@atlas/integrations"],
   serverExternalPackages: ["postgres"],
   async headers() {
