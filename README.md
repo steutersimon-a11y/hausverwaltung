@@ -14,7 +14,7 @@ Die Aufnahme stammt aus der tatsächlich gestarteten Anwendung mit ausschließli
 
 **[Privaten ATLAS-Arbeitsbereich öffnen](https://neuhaus-objektkarte-dinslaken.fhfhzfmsqw.chatgpt.site)**. Der Zugang erfolgt über das berechtigte ChatGPT-Konto. Für die Website sind keine Installation, Terminalbefehle oder Demo-Zugangsdaten nötig.
 
-Die gehostete Variante unter `apps/hosted` speichert Angaben und Originaldateien serverseitig. Der vorbereitete Erstbestand enthält 36 reale Verwaltungsobjekte und drei amtlich zugeordnete Außenmodelle; weitere Standorte, Einheiten und Mieterdetails werden nur aus vorliegenden Angaben erfasst. Nutzungsumfang und Abschlussprüfung: **[Website-Anleitung](docs/HOSTED_WEBSITE.md)**.
+Die gehostete Variante unter `apps/hosted` speichert Angaben und Originaldateien serverseitig. Der übernommene Erstbestand enthält 36 reale Verwaltungsobjekte und drei amtlich zugeordnete Außenmodelle; weitere Standorte, Einheiten und Mieterdetails werden nur aus vorliegenden Angaben erfasst. Nutzungsumfang und Abschlussprüfung: **[Website-Anleitung](docs/HOSTED_WEBSITE.md)**.
 
 Die folgenden Installationsanweisungen richten sich an die Entwicklung des separaten Next.js-/PostgreSQL-Prototyps. Für eine Entwicklungsumgebung im Browser gibt es weiterhin die [Codespaces-Anleitung](docs/OPEN_IN_BROWSER.md).
 

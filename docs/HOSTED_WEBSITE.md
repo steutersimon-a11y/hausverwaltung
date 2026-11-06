@@ -1,6 +1,6 @@
 # ATLAS als private Website
 
-Die gehostete ATLAS-Anwendung wird unter dem vorhandenen privaten Website-Link bereitgestellt. Für die Nutzung reichen Browser und das berechtigte Konto; eine lokale Installation ist nicht erforderlich. Die Veröffentlichung, die Übernahme der privaten Bestandsdaten und die Prüfung der veröffentlichten Version laufen getrennt vom Quellcode-Build. Der unten beschriebene Ablauf ist erst mit diesen Abschlussprüfungen als ausgeliefert bestätigt.
+Die gehostete ATLAS-Anwendung ist unter **[ATLAS öffnen](https://neuhaus-objektkarte-dinslaken.fhfhzfmsqw.chatgpt.site)** veröffentlicht. Für die Nutzung reichen Browser und das berechtigte ChatGPT-Konto; eine lokale Installation und Demo-Zugangsdaten sind nicht erforderlich. Am 6. November 2026 wurden 36 Objekte und drei amtliche Außenmodelle in den privaten Website-Speicher übernommen und erneut aus der veröffentlichten Anwendung abgerufen.
 
 ## Im Browser arbeiten
 
@@ -35,6 +35,8 @@ Diese erste gehostete Fassung hält den strukturierten Arbeitsstand einschließl
 
 Die frühere Pilotkarte hat manuelle Einträge und hochgeladene Dateien in IndexedDB des jeweiligen Browsers gespeichert. Die neue Anwendung löscht diesen vorhandenen Browserspeicher nicht. Solche Einträge werden durch die neue serverseitige Speicherung aber auch nicht automatisch übertragen. Sie können in einem anderen Browser bereits bisher fehlen und benötigen eine bewusste Export-/Übernahmefunktion. Bis eine solche Übernahme umgesetzt und geprüft ist, bleibt dieser frühere Datenbestand separat.
 
+Die bisherige Oberfläche bleibt unter `/pilot/` auf derselben privaten Website erreichbar. Sie verwendet zur Wiederaufnahme der alten Browserdaten einen lokalen Hintergrund und ruft keine externen Kartenkacheln mehr ab.
+
 Die Initialübernahme aus den bereitgestellten Objektlisten erfolgt über einen geschützten, einmaligen Bootstrap. Eine identische Wiederholung darf keine Duplikate erzeugen. Ein bereits bearbeiteter Bestand wird dabei nicht ersetzt. Die tatsächlichen Quelldateien und Modellpakete liegen ausschließlich im ignorierten Verzeichnis `imports/` beziehungsweise im geschützten Anwendungsspeicher. Das öffentliche GitHub-Repository enthält dafür den Anwendungscode und synthetische Prüfdaten.
 
 ## Verhältnis zum lokalen Prototyp
@@ -62,4 +64,14 @@ Diese Punkte müssen an der tatsächlich veröffentlichten privaten Website gepr
 - Aufgaben und tatsächliche Einheiten lassen sich anlegen und ändern; veraltete Revisionen werden als Konflikt angezeigt.
 - Die mobile Ansicht und Tastaturbedienung funktionieren; es gibt keine unerwarteten externen Geocoding- oder Modelldownloads.
 
-Der Veröffentlichungs- und Prüfstand wird nach dem Abschlusslauf dokumentiert. Die vorbereiteten privaten Importartefakte und diese Beschreibung behaupten noch keinen erfolgreichen produktiven Betrieb.
+### Ausgeführter Abschlusslauf
+
+- Veröffentlichung erfolgreich, gespeicherte Website-Version **2**; Eigentümerzugang erhalten.
+- D1-Migration angewendet, Tabelle `app_state` über die Hosting-Verwaltung bestätigt.
+- 36 echte Quelldatensätze erneut abrufbar, drei belegte Standorte und Modelle; 0 erfundene Einzelwohnungen oder Personen. 36 noch ungeklärte Verwaltungsarten bleiben `null`.
+- Alle drei Modelloriginale nach dem R2-Upload bytegenau gegen ihre lokalen Quelldateien geprüft; unabhängiger erneuter HTTP-Abruf erfolgreich.
+- Website-HTML, Anwendungsdatei und lokaler Karten-Worker über den veröffentlichten Link mit HTTP 200 abrufbar. Nicht angemeldete Aufrufe sowie Serviceaufrufe ohne Anwendungsschlüssel liefern 401.
+- Anfrage mit korrekter Website-Origin erreicht die Eingabevalidierung; eine fremde Origin wird mit 403 abgewiesen, ohne Daten anzulegen.
+- **21 Hosted-Tests** mit echten lokalen D1-/R2-Bindings, einschließlich Originaldateien, Versionen, konkurrierenden Änderungen und Importen. Zusätzlich wurde der kompilierte Worker in der Edge-Laufzeit per HTTP geprüft. Typechecks, ESLint und Build bestanden; 51 bestehende Unit-Tests bestanden.
+
+Ein vollständiger visueller Browser-, Mobil- und Tastaturabschlusslauf ist in dieser Umgebung nicht ausgeführt: Das von Sites verlangte Browserwerkzeug und der Vorschau-Relay stehen hier nicht zur Verfügung. Die Plattform kann eigene Vorschauaufnahmen erstellen; diese ersetzen keine behauptete manuelle Sichtprüfung. Die im lokalen Worker getestete CSP wird vom Hosting-Dispatch am veröffentlichten HTML nicht unverändert ausgegeben; der tatsächliche Zugriffsschutz und die Origin-Prüfung wurden deshalb über HTTP geprüft. Eine langfristige Produktions- oder Sicherheitszertifizierung wird nicht behauptet.
