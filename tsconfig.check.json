@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": { "types": ["node"], "paths": { "@/*": ["./apps/web/src/*"] } },
+  "include": ["packages/**/*.ts", "scripts/**/*.ts", "tests/**/*.ts", "vitest*.ts", "playwright.config.ts"],
+  "exclude": ["node_modules", "apps/web/.next"]
+}

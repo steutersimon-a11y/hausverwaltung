@@ -1,0 +1,45 @@
+{
+  "name": "atlas-property-os",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "dev": "node scripts/next.mjs dev --hostname 127.0.0.1",
+    "build": "node scripts/next.mjs build",
+    "start": "node scripts/next.mjs start --hostname 127.0.0.1",
+    "typecheck": "pnpm --filter @atlas/web typecheck && tsc --noEmit -p tsconfig.check.json",
+    "lint": "eslint apps packages scripts tests --max-warnings=0",
+    "test": "vitest run",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "test:e2e": "playwright test",
+    "db:migrate": "node --env-file-if-exists=.env --import tsx packages/db/src/migrate.ts",
+    "db:seed": "node --env-file-if-exists=.env --import tsx scripts/seed.ts",
+    "services:up": "docker compose up -d --wait",
+    "services:down": "docker compose down",
+    "check": "pnpm lint && pnpm typecheck && pnpm test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0",
+    "@types/geojson": "7946.0.16",
+    "@types/node": "24.10.1",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "dotenv": "17.2.3",
+    "drizzle-kit": "0.31.11",
+    "eslint": "10.14.0",
+    "eslint-config-next": "16.4.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "5.1.0",
+    "better-auth": "1.7.18",
+    "drizzle-orm": "0.45.4",
+    "@atlas/db": "workspace:*",
+    "@atlas/domain": "workspace:*",
+    "@atlas/integrations": "workspace:*"
+  }
+}
