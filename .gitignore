@@ -16,3 +16,4 @@ work/
 *.dump
 .cache/
 backups/
+apps/hosted/generated-assets.ts

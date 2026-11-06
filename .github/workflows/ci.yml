@@ -29,9 +29,12 @@ jobs:
       - run: pnpm db:migrate && pnpm db:seed
       - run: pnpm lint
       - run: pnpm typecheck
+      - run: pnpm typecheck:hosted
       - run: pnpm test
+      - run: pnpm test:hosted
       - run: pnpm test:integration
       - run: pnpm build
+      - run: pnpm build:hosted
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e
       - if: always()

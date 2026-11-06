@@ -3,6 +3,7 @@ packages:
   - packages/*
 allowBuilds:
   esbuild: true
+  workerd: true
 minimumReleaseAgeExclude:
   - '@aws-sdk/client-s3@3.1163.0'
   - '@better-auth/core@1.7.18'

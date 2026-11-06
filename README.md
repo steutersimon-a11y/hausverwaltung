@@ -10,11 +10,13 @@ Ein lokal ausführbarer, deutschsprachiger Verwaltungsprototyp: räumlicher Übe
 
 Die Aufnahme stammt aus der tatsächlich gestarteten Anwendung mit ausschließlich fiktiven Testdaten. [Light Mode ansehen](docs/screenshots/portfolio-light.png).
 
-## Im Browser starten – ohne Installation
+## Website öffnen
 
-**[ATLAS in GitHub Codespaces öffnen](https://codespaces.new/steutersimon-a11y/hausverwaltung)** → bei GitHub anmelden → **Create codespace**. Die Einrichtung und der Anwendungsstart laufen automatisch. Falls kein ATLAS-Tab aufgeht: **Ports → 3000 → Open in Browser**; Sichtbarkeit **Private** lassen.
+**[Privaten ATLAS-Arbeitsbereich öffnen](https://neuhaus-objektkarte-dinslaken.fhfhzfmsqw.chatgpt.site)**. Der Zugang erfolgt über das berechtigte ChatGPT-Konto. Für die Website sind keine Installation, Terminalbefehle oder Demo-Zugangsdaten nötig.
 
-Ein frischer Codespace enthält nur die synthetische Demo. Echte Quelldaten und Gebäudemodelle aus der bisherigen privaten Arbeitsumgebung werden nicht übertragen. GitHub bietet ein monatliches Kontingent; darüber hinaus können Kosten entstehen. Prüfe die Konditionen vor dem Start. Anmeldung, Datenumfang und Beenden: **[Browser-Anleitung](docs/OPEN_IN_BROWSER.md)**.
+Die gehostete Variante unter `apps/hosted` speichert Angaben und Originaldateien serverseitig. Der vorbereitete Erstbestand enthält 36 reale Verwaltungsobjekte und drei amtlich zugeordnete Außenmodelle; weitere Standorte, Einheiten und Mieterdetails werden nur aus vorliegenden Angaben erfasst. Nutzungsumfang und Abschlussprüfung: **[Website-Anleitung](docs/HOSTED_WEBSITE.md)**.
+
+Die folgenden Installationsanweisungen richten sich an die Entwicklung des separaten Next.js-/PostgreSQL-Prototyps. Für eine Entwicklungsumgebung im Browser gibt es weiterhin die [Codespaces-Anleitung](docs/OPEN_IN_BROWSER.md).
 
 ## Lokal starten
 
