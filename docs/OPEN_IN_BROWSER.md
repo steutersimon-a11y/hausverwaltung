@@ -8,7 +8,7 @@ Du brauchst einen GitHub-Account und einen Browser. Auf deinem Rechner muss nich
 
 1. Öffne **[ATLAS in GitHub Codespaces starten](https://codespaces.new/steutersimon-a11y/hausverwaltung)** und melde dich bei GitHub an.
 2. Klicke auf **Create codespace**. Die erste Einrichtung kann mehrere Minuten dauern. Abhängigkeiten, Datenbank und synthetische Demo werden automatisch eingerichtet; danach startet ATLAS automatisch.
-3. Warte auf den ATLAS-Tab. Falls er nicht automatisch erscheint, öffne unten in der Entwicklungsumgebung **Ports**, wähle bei **3000** das Globus-Symbol beziehungsweise **Open in Browser**. Lasse die Sichtbarkeit auf **Private**.
+3. Warte auf den ATLAS-Tab. Falls er nicht automatisch erscheint oder der Browser den neuen Tab blockiert, öffne unten in der Entwicklungsumgebung **Ports**, wähle bei **3000** das Globus-Symbol beziehungsweise **Open in Browser**. Verwende dasselbe Browserprofil wie beim Erstellen des Codespace und lasse die Sichtbarkeit auf **Private**.
 4. Melde dich in ATLAS mit **`admin@atlas.example`** und **`Atlas-Demo-2026!`** an. Weitere synthetische Konten stehen in der [README](../README.md#synthetische-demo-zugänge).
 
 Die private Adresse endet normalerweise auf `.app.github.dev` und gehört zu deinem Codespace. Für den Zugang verlangt GitHub deine Anmeldung; anschließend schützt die ATLAS-Anmeldung die Anwendung. GitHub setzt weitergeleitete Ports standardmäßig auf privat. [GitHubs Sicherheitsbeschreibung](https://docs.github.com/en/codespaces/reference/security-in-github-codespaces).
@@ -29,8 +29,13 @@ Wenn du fertig bist, stoppe die Umgebung auf der Codespaces-Seite über das Men�
 
 ## Wenn die Vorschau nicht erscheint
 
-- Warte, bis die Ersteinrichtung abgeschlossen ist, und öffne **Ports → 3000 → Open in Browser**. Nutze dieselbe Adresse auch für die Anmeldung.
-- Wenn der Browser den automatischen neuen Tab blockiert, erlaube ihn oder nutze den manuellen Weg über **Ports**.
-- Bei einem fehlgeschlagenen Start enthält `work/browser-preview.log` die Diagnose. Die Einrichtung meldet Fehler im Codespaces-Erstellungsprotokoll; keine Secrets oder echten Datensätze in Fehlerberichte kopieren.
+**„HTTP ERROR 401“ auf der privaten `.app.github.dev`-Adresse:** Eine schlichte Browser-Fehlerseite kann bedeuten, dass GitHubs Port-Weiterleitung deine GitHub-Anmeldung noch nicht akzeptiert hat. Ob ATLAS läuft, lässt sich aus diesem Fehler allein nicht ableiten. Private Ports verlangen die Anmeldung mit dem GitHub-Account, der den Codespace erstellt hat. [GitHubs Beschreibung privater Ports](https://docs.github.com/en/codespaces/reference/security-in-github-codespaces).
+
+1. Öffne ein normales Browserfenster und melde dich bei GitHub mit diesem Account an. Nutze dasselbe Browserprofil für GitHub, den Codespace und ATLAS; ein Inkognitofenster oder ein anderes Profil teilt diese Anmeldung nicht.
+2. Öffne **[github.com/codespaces](https://github.com/codespaces)** und dort deinen **bestehenden** Codespace. Warte, bis er und seine Ersteinrichtung bereit sind.
+3. Öffne **Ports → 3000 → Globus / Open in Browser**. Schließe eine gegebenenfalls angezeigte GitHub-Anmeldung im selben Browserprofil ab. Die Port-Sichtbarkeit bleibt **Private**.
+4. Falls kein neuer Tab aufgeht, erlaube den vom Browser blockierten Tab oder kopiere die weitergeleitete Adresse aus der Zeile **3000** und öffne sie in einem neuen Tab desselben Browserprofils. Nutze anschließend diese Adresse auch für die ATLAS-Anmeldung.
+
+**„502 / Bad Gateway“ oder eine fehlende Verbindung nach der GitHub-Anmeldung:** Prüfe, ob die Ersteinrichtung abgeschlossen ist und ATLAS gestartet wurde. Ein früh geöffneter Tab kann noch die Seite vom Startzeitpunkt zeigen; lade ihn nach abgeschlossener Einrichtung neu. Bei einem fehlgeschlagenen Anwendungsstart enthält `work/browser-preview.log` die Diagnose. Fehler der Einrichtung stehen im Codespaces-Erstellungsprotokoll. Keine Secrets oder echten Datensätze in Fehlerberichte kopieren.
 
 Technischer Aufbau: [`.devcontainer/devcontainer.json`](../.devcontainer/devcontainer.json). Der Startlink folgt [GitHubs dokumentiertem Codespaces-Linkformat](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces).
